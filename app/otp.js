@@ -7,6 +7,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const {width, height} = Dimensions.get("screen");
 
+const ipAdrress = process.env.address;
+
 const Otp = () => {
 
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
@@ -65,7 +67,7 @@ const Otp = () => {
 
             const user = await JSON.parse(session);
 
-            const response = await fetch(`http://192.168.186.166:4000/signup/verify-otp/${user._id}`, {
+            const response = await fetch(`${ipAdrress}/signup/verify-otp/${user._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

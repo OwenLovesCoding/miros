@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const {width, height} = Dimensions.get("screen");
 
 
+    const ipAddress = process.env.address;
 
 const Signup = () => {
     const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ const Signup = () => {
         }
 
         try {
-            const response = await fetch(`http://192.168.186.166:4000/signup/send-mail`, {
+            const response = await fetch(`${ipAddress}/signup/send-mail`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
